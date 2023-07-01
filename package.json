@@ -14,9 +14,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:watch": "nodemon start",
+    "dev": "npm run start:watch",
     "build": "react-scripts build",
+    "build:ci": "CI=false npm run build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docker:dev": "concurrently --kill-others \"npm run dev\""
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +39,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "concurrently": "^8.2.0",
+    "nodemon": "^2.0.22"
   }
 }
